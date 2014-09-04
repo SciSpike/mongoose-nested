@@ -1,0 +1,38 @@
+{
+  "name": "mongoose-nested",
+  "version": "1.0.0",
+  "description": "Mongoose Nested Type",
+  "main": "./index.js",
+  "peerDependencies": {
+    "mongoose": ">=2.7.0"
+  },
+  "devDependencies": {
+    "mongoose": ">=2.7.0"
+  },
+  "keywords": [
+    "mongoose",
+    "nested",
+    "type"
+  ],
+  "author": {
+    "name": "Jonathan Kamke",
+    "email": "jonathan.kamke@scispike.com",
+    "url": "https://www.scispike.com"
+  },
+  "contributors": [
+    {
+      "name": "Jonathan Kamke",
+      "email": "jonathan.kamke@scispike.com",
+      "url": "https://www.scispike.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Scispike/mongoose-nested.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Scispike/mongoose-nested/issues"
+  },
+  "homepage": "https://github.com/Scispike/mongoose-nested"
+}
