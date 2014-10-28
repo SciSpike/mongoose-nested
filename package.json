@@ -7,7 +7,16 @@
     "mongoose": ">=2.7.0"
   },
   "devDependencies": {
-    "mongoose": ">=2.7.0"
+    "mongoose": ">=2.7.0",
+    "grunt-cli": "0.1.13",
+    "grunt": "0.4.5",
+    "load-grunt-tasks": "0.6.0",
+    "grunt-shell": "0.7.0",
+    "grunt-bump": "0.0.16"    
+  },
+  "scripts": {
+    "patch": "grunt release-patch",
+    "minor": "grunt release-minor"  
   },
   "keywords": [
     "mongoose",
