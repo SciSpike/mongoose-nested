@@ -42,17 +42,23 @@ function Nested (path, options) {
         var cPath = [ topPath, path ].join('.');
         var val = self.getValue(cPath);
         // console.log("pre-doValidate",self,val,path)
-        p.doValidate(val, function (err) {
-          // console.log("doValidate",arguments)
-          if (err) {
-            errors.push(err);
-            self.invalidate(cPath, err, undefined, true // embedded docs
-            );
-          }
+        if (p.validators.length > 0) {
+          p.doValidate(val, function (err) {
+            // console.log("doValidate",arguments)
+            if (err) {
+              errors.push(err);
+              self.invalidate(cPath, err, undefined, true // embedded docs
+              );
+            }
+            if(--total==0){
+              complete();
+            }
+          }, self);
+        } else {
           if(--total==0){
             complete();
           }
-        }, self);
+        }
       });
     }
 

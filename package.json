@@ -1,6 +1,6 @@
 {
   "name": "mongoose-nested",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mongoose Nested Type",
   "main": "./index.js",
   "peerDependencies": {
