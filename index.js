@@ -46,8 +46,8 @@ function Nested (path, options) {
         var val = self.getValue(cPath);
         if (p.validators.length > 0) {
           // WEIRD:  adding thiz:this to the stringified object below fixes the problem!!!
-          // console.log('!!!!! IGNORE THE FOLLOWING:  TypeError: Converting circular structure to JSON');
-          // JSON.stringify({thiz:this},null,2);
+          console.log('!!!!! IGNORE THE FOLLOWING:  TypeError: Converting circular structure to JSON');
+          JSON.stringify({thiz:this},null,2);
           //console.log("validating: ", JSON.stringify({cPath:cPath,val_shown_in_array:[val],p:p,self:self,thiz:this},null,2));
           p.doValidate(val, function (err) {
             if (err) {
