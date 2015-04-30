@@ -10,7 +10,7 @@ function Nested (path, options) {
   var topPath = path;
   SchemaTypes.Mixed.call(this, path, options);
   function validateChildren (arg, cb) {
-    // console.log("validateChildren",arguments)
+    // console.log("validateChildren",path,arguments)
     if (!required && !arg) {
       return cb(true);
     } else if (require && !arg) {
@@ -22,9 +22,13 @@ function Nested (path, options) {
       _id : false
     });
 
-    var validating = {}, total = 0;
-
+    var validating = {};
+    var total = 0;
+    var completed = false;
     schema.eachPath(validatePath);
+    if(total == 0) {
+      complete();
+    }
     var errors = [];
     function validatePath (path) {
       if (validating[path])
@@ -32,6 +36,9 @@ function Nested (path, options) {
       // console.log("validatePath",arguments)
 
       validating[path] = true;
+      if(path.indexOf(".")>-1)
+        return;
+
       total++;
 
       process.nextTick(function () {
@@ -57,7 +64,10 @@ function Nested (path, options) {
     }
 
     function complete () {
-      cb(!errors.length);
+      if(!completed){
+        completed=true;
+        cb(true);
+      }
     }
   }
   this.validate(validateChildren);
