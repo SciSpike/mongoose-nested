@@ -44,7 +44,7 @@ function Nested (path, options) {
       process.nextTick(function () {
         // console.log("valud",val)
         var p = schema.path(path);
-        if (!p)
+        if (!p || !p.validators.length)
           return --total || complete();
         var cPath = [ topPath, path ].join('.');
         var val = self.getValue(cPath);
